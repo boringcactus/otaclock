@@ -5,25 +5,9 @@ export default function clockReducer(state = clockState, action) {
 	const type = action.type;
 
 	switch (type) {
-		case CLOCK.DISABLE_ALARM:
-			return Object.assign({}, state, {
-				alarm: false
-			});
-		case CLOCK.ENABLE_ALARM:
-			return Object.assign({}, state, {
-				alarm: true
-			});
 		case CLOCK.HIDE_SEPARATORS:
 			return Object.assign({}, state, {
 				separators: false
-			});
-		case CLOCK.RECEIVE_ALARM_HOURS:
-			return Object.assign({}, state, {
-				alarmHours: action.arr
-			});
-		case CLOCK.RECEIVE_ALARM_MINUTES:
-			return Object.assign({}, state, {
-				alarmMinutes: action.arr
 			});
 		case CLOCK.RECEIVE_DATE:
 			return Object.assign({}, state, {

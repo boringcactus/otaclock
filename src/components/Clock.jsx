@@ -4,21 +4,14 @@ import classnames from 'classnames';
 
 class Clock extends React.Component {
 	static propTypes = {
-		alarm: React.PropTypes.bool,
-		alarmHours: React.PropTypes.array,
-		alarmMinutes: React.PropTypes.array,
-		compareTimeToAlarmTime: React.PropTypes.func,
 		date: React.PropTypes.array,
 		day: React.PropTypes.string,
 		getTime: React.PropTypes.func,
 		hours: React.PropTypes.array,
-		increaseAlarmHours: React.PropTypes.func,
-		increaseAlarmMinutes: React.PropTypes.func,
 		minutes: React.PropTypes.array,
 		month: React.PropTypes.array,
 		seconds: React.PropTypes.array,
-		separators: React.PropTypes.bool,
-		toggleAlarm: React.PropTypes.func
+		separators: React.PropTypes.bool
 	}
 
 	componentWillMount() {
@@ -29,36 +22,24 @@ class Clock extends React.Component {
 
 	componentDidMount() {
 		const {
-			compareTimeToAlarmTime,
 			getTime
 		} = this.props;
 
 		window.setInterval(() => {
-			compareTimeToAlarmTime();
 			getTime();
 		}, 1000);
 	}
 
 	render() {
 		const {
-			alarm,
-			alarmHours,
-			alarmMinutes,
 			date,
 			day,
 			hours,
-			increaseAlarmHours,
-			increaseAlarmMinutes,
 			minutes,
 			month,
 			seconds,
-			separators,
-			toggleAlarm
+			separators
 		} = this.props;
-		const alarmClasses = classnames({
-			blue: alarm === false,
-			red: alarm === true
-		});
 		const separatorClasses = classnames({
 			separator: separators
 		});
@@ -91,18 +72,6 @@ class Clock extends React.Component {
 				<div id='seconds'>
 					<div className={ (seconds && seconds[ 0 ]) + ' first'}></div>
 					<div className={ (seconds && seconds[ 1 ]) + ' second' }></div>
-				</div>
-
-				<div id='alarm' className={ alarmClasses } onClick={ toggleAlarm }></div>
-
-				<div id='alarm-hours' className={ separatorClasses } onClick={ increaseAlarmHours }>
-					<div className={ 'small-' + (alarmHours && alarmHours[ 0 ]) + ' first'}></div>
-					<div className={ 'small-' + (alarmHours && alarmHours[ 1 ]) + ' second'}></div>
-				</div>
-
-				<div id='alarm-minutes' onClick={ increaseAlarmMinutes }>
-					<div className={ 'small-' + (alarmMinutes && alarmMinutes[ 0 ]) + ' first'}></div>
-					<div className={ 'small-' + (alarmMinutes && alarmMinutes[ 1 ]) + ' second'}></div>
 				</div>
 			</div>
 		);

@@ -1,35 +1,9 @@
 import { CLOCK } from 'constants/CLOCK';
 
 class ClockActions {
-	disableAlarm() {
-		return {
-			type: CLOCK.DISABLE_ALARM
-		};
-	}
-
-	enableAlarm() {
-		return {
-			type: CLOCK.ENABLE_ALARM
-		};
-	}
-
 	hideSeparators() {
 		return {
 			type: CLOCK.HIDE_SEPARATORS
-		};
-	}
-
-	receiveAlarmHours(arr) {
-		return {
-			arr,
-			type: CLOCK.RECEIVE_ALARM_HOURS
-		};
-	}
-
-	receiveAlarmMinutes(arr) {
-		return {
-			arr,
-			type: CLOCK.RECEIVE_ALARM_MINUTES
 		};
 	}
 

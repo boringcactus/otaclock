@@ -1,9 +1,3 @@
-/* global Audio, require, window */
-
-const alarmOne = require('sounds/alarm.wav');
-const alarm = new Audio(alarmOne);
-let alarmInterval;
-
 /**
  * Decides appropriate sting for image from string
  * @param  {string} str String to find
@@ -130,23 +124,6 @@ export function increaseStringNumberArray(arr, restart) {
 }
 
 /**
- * Play alarm
- */
-export function playAlarm() {
-	if (typeof alarm.loop === 'boolean') {
-		alarm.loop = true;
-	}
-	else {
-		alarm.addEventListener('ended', () => {
-			this.currentTime = 0;
-			this.play();
-		}, false);
-	}
-
-	alarm.play();
-}
-
-/**
  * Processes time
  * @param  {number} num Number representing part of a time
  * @return {array}      Array of time string parts
@@ -164,13 +141,4 @@ export function processTime(num, zero = true) {
 	}
 
 	return timeImageArr;
-}
-
-/**
- * Stop alarm
- */
-export function stopAlarm() {
-	window.clearInterval(alarmInterval);
-	alarm.pause();
-	alarm.currentTime = 0;
 }

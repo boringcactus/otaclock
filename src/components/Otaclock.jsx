@@ -23,24 +23,6 @@ class Otaclock extends React.Component {
 		otacon: React.PropTypes.object
 	};
 
-	compareTimeToAlarmTime = () => {
-		const { dispatch } = this.props;
-
-		dispatch(ClockServices.compareTimeToAlarmTime());
-	}
-
-	disableAlarm = () => {
-		const { dispatch } = this.props;
-
-		dispatch(ClockActions.disableAlarm());
-	};
-
-	enableAlarm = () => {
-		const { dispatch } = this.props;
-
-		dispatch(ClockActions.enableAlarm());
-	};
-
 	getTime = () => {
 		const { dispatch } = this.props;
 
@@ -52,18 +34,6 @@ class Otaclock extends React.Component {
 
 		dispatch(ClockActions.hideSeparators());
 	}
-
-	increaseAlarmHours = () => {
-		const { dispatch } = this.props;
-
-		dispatch(ClockServices.increaseAlarmHours());
-	};
-
-	increaseAlarmMinutes = () => {
-		const { dispatch } = this.props;
-
-		dispatch(ClockServices.increaseAlarmMinutes());
-	};
 
 	randomizeEyes = () => {
 		const { dispatch } = this.props;
@@ -77,12 +47,6 @@ class Otaclock extends React.Component {
 		dispatch(ClockActions.showSeparators());
 	}
 
-	toggleAlarm = () => {
-		const { dispatch } = this.props;
-
-		dispatch(ClockServices.toggleAlarm());
-	};
-
 	thumbsUp = () => {
 		const { dispatch } = this.props;
 
@@ -92,9 +56,6 @@ class Otaclock extends React.Component {
 	render() {
 		const { eyes, thumbsUpPosition } = this.props.otacon;
 		const {
-			alarm,
-			alarmHours,
-			alarmMinutes,
 			date,
 			day,
 			hours,
@@ -106,24 +67,16 @@ class Otaclock extends React.Component {
 
 		return (
 			<div id='otaclock'>
-				<Clock alarm={ alarm }
-					alarmHours={ alarmHours }
-					alarmMinutes={ alarmMinutes }
-					compareTimeToAlarmTime={ this.compareTimeToAlarmTime }
+				<Clock
 					date={ date }
 					day={ day }
-					disableAlarm={ this.disableAlarm }
-					enableAlarm={ this.enableAlarm }
 					getTime={ this.getTime }
 					hours={ hours }
-					increaseAlarmMinutes={ this.increaseAlarmMinutes }
-					increaseAlarmHours={ this.increaseAlarmHours }
 					minutes={ minutes }
 					month={ month }
 					seconds={ seconds }
-					separators={ separators }
-					toggleAlarm={ this.toggleAlarm } />
-				<Otacon alarm={ alarm }
+					separators={ separators } />
+				<Otacon
 					eyes={ eyes }
 					randomizeEyes={ this.randomizeEyes }
 					thumbsUpPosition={ thumbsUpPosition }

@@ -1,45 +1,3 @@
-#alarm,
-#alarm-hours,
-#alarm-minutes {
-	cursor: pointer;
-}
-
-#alarm {
-	height: 35px;
-	left: 35px;
-	position: absolute;
-	top: 126px;
-	width: 146px;
-
-	&.blue {
-		background-position: -154px -865px;
-	}
-
-	&.red {
-		background-position: -1px -865px;
-	}
-}
-
-#alarm-hours {
-	left: 203px;
-	height: 35px;
-	position: absolute;
-	top: 126px;
-	width: 62px;
-
-	&.separator {
-		width: 77px;
-	}
-}
-
-#alarm-minutes {
-	left: 286px;
-	height: 35px;
-	position: absolute;
-	top: 126px;
-	width: 62px;
-}
-
 #clock {
 	background-position: 0 0;
 	height: 244px;
@@ -52,9 +10,7 @@
 #hours,
 #minutes,
 #month,
-#seconds,
-#alarm-hours,
-#alarm-minutes {
+#seconds {
 	position: absolute;
 	background-color: #FFFFFF;
 }
@@ -163,8 +119,6 @@
 	}
 }
 
-#alarm-hours,
-#alarm-minutes,
 #date,
 #month {
 	.second {
