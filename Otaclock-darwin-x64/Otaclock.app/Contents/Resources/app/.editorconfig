@@ -1,3 +1,0 @@
-[*.{js,jsx,json,scss,html}]
-indent_style = tab
-indent_size = 4
